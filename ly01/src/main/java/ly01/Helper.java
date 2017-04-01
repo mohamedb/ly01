@@ -21,9 +21,13 @@ public class Helper {
 	   * @param instructions
 	   * @return
 	   */
-	  public static char[] parse(String instructions) {
+	  public static char[] instructions(String instructions) {
 		  instructions = instructions.replaceAll("\\s","");
 		  return instructions.toCharArray();
+	  }
+	  
+	  public static String[] initialization(String initStr) {
+		  return initStr.split("\\s+");
 	  }
 	   
   }

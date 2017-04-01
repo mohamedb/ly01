@@ -29,8 +29,10 @@ public class Grid {
 	}
 
 	public Grid(String dimsCommand) {
-		this(Character.getNumericValue(Helper.InstructionParser.parse(dimsCommand)[0]),
-				Character.getNumericValue(Helper.InstructionParser.parse(dimsCommand)[1]));
+		this(   
+				Integer.valueOf(Helper.InstructionParser.initialization(dimsCommand)[0]),
+				Integer.valueOf(Helper.InstructionParser.initialization(dimsCommand)[1])
+			);
 	}
 
 	/**

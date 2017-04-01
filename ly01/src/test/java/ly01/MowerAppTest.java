@@ -11,7 +11,7 @@ public class MowerAppTest {
 	
 	@Before
 	public void initTest() {
-		this.grid = new Grid("5 5");
+		this.grid = new Grid("10 5");
 	}
 
 	@Test

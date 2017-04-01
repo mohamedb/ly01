@@ -11,10 +11,12 @@ public class Mower {
 		super();
 		this.name = name;
 		this.grid = grid;
-		this.currentCell = grid.getCell(Character.getNumericValue(Helper.InstructionParser.parse(initalPosition)[0]),
-				Character.getNumericValue(Helper.InstructionParser.parse(initalPosition)[1]));
+		this.currentCell = grid.getCell(
+				Integer.valueOf(Helper.InstructionParser.initialization(initalPosition)[0]),
+				Integer.valueOf(Helper.InstructionParser.initialization(initalPosition)[1])
+				);
 		this.currentCell.setOccupied(true);
-		this.orientation = Helper.InstructionParser.parse(initalPosition)[2];
+		this.orientation = Helper.InstructionParser.initialization(initalPosition)[2].charAt(0);
 	}
 
 	/**
@@ -22,7 +24,7 @@ public class Mower {
 	 * @param command
 	 */
 	public void move(String command) {
-		char[] instructions = Helper.InstructionParser.parse(command);
+		char[] instructions = Helper.InstructionParser.instructions(command);
 		for (char c : instructions) {
 			switch (c) {
 			case Helper.MoveInsctruction.A:
