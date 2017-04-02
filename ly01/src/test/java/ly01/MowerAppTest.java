@@ -41,7 +41,7 @@ public class MowerAppTest {
 	}
 	
 	@Test
-	public void shouldNotMoveOutsideOfTheGrid(){
+	public void shouldNotMoveOutsideOfTheGridAndIgnoreUnkownInstruction(){
 		Mower m = new Mower("M3", grid, "0 0 N");
 		m.move("AGAAAAJ");
 		assertEquals("0 1 W", m.getPosition());

@@ -114,9 +114,9 @@ public class Mower {
 			return;
 		}
 		if (this.grid.canMoveToCellAt(nextX, nextY)) {
-			this.currentCell.setOccupied(false);
+			this.currentCell.setOccupied(false);/* free the previous cell */
 			this.currentCell = this.grid.getCell(nextX, nextY);
-			this.currentCell.setOccupied(true);
+			this.currentCell.setOccupied(true); /* mark the next -now current- cell */
 			return;
 		}
 		System.out.println("\n Can't move to: x=" + nextX + " y=" + nextY + " \t either the position is outside the grid or currently in use");

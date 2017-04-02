@@ -29,10 +29,8 @@ public class Grid {
 	}
 
 	public Grid(String dimsCommand) {
-		this(   
-				Integer.valueOf(Helper.InstructionParser.initialization(dimsCommand)[0]),
-				Integer.valueOf(Helper.InstructionParser.initialization(dimsCommand)[1])
-			);
+		this(Integer.valueOf(Helper.InstructionParser.initialization(dimsCommand)[0]),
+				Integer.valueOf(Helper.InstructionParser.initialization(dimsCommand)[1]));
 	}
 
 	/**
@@ -58,7 +56,7 @@ public class Grid {
 	 */
 	public Cell getCell(int x, int y) {
 		/* Don't loop if coordinate are invalid */
-		if (x < 0 || y < 0 || x > this.maxX || y > this.maxY) {
+		if (!isCoordinateValid(x, y) ) {
 			return null;
 		}
 		for (Cell c : this.cells)
@@ -76,9 +74,21 @@ public class Grid {
 	 * @return
 	 */
 	public boolean canMoveToCellAt(int x, int y) {
-		if (x < 0 || y < 0 || x > this.maxX || y > this.maxY || this.getCell(x, y) == null || this.getCell(x, y).isOccupied()) {
+		if (!isCoordinateValid(x, y) || this.getCell(x, y) == null || this.getCell(x, y).isOccupied()) {
 			return false;
 		}
+		return true;
+	}
+	
+	/**
+	 * 
+	 * @param x
+	 * @param y
+	 * @return
+	 */
+	public boolean isCoordinateValid(int x, int y) {
+		if (x < 0 || y < 0 || x > this.maxX || y > this.maxY)
+			return false;
 		return true;
 	}
 
